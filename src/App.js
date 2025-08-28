@@ -7,13 +7,14 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
+  // 👇 This runs once when the app loads
   useEffect(() => {
-    // Example for local backend call; not used in current frontend
     fetch("http://localhost:5000/api/movies")
       .then((res) => res.json())
       .then((data) => {
         console.log("Fetched from local backend:", data);
-        // This is just for dev reference
+        // If you want to set local backend movies:
+        // setMovies(data);
       })
       .catch((err) => {
         console.error("Local fetch failed:", err);
